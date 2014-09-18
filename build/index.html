@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en-US" data-ng-app="vokal">
+
+	<head>
+		<base href="/">
+		<meta charset="utf-8">
+		<title>Name</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width, minimal-ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel="stylesheet" href="./base.css">
+		<link rel="stylesheet" href="./project.css">
+
+	</head>
+
+	<body data-ng-controller="Site">
+
+		<header>
+			<div class="row-container">
+				<div class="row">
+					<img src="./gotclocked_logo.png" alt="">
+				</div>
+			</div>
+		</header>
+
+		<main data-ng-view></main>
+
+		<script>
+			var STATIC_PATH = "<%= STATIC_PATH %>";
+		</script>
+
+		<script src="./jquery.js"></script>
+		<script src="./timer.js"></script>
+		<script src="./countup.js"></script>
+		<script src="./angular.js"></script>
+		<script src="./project.js"></script>
+
+	</body>
+
+</html>
