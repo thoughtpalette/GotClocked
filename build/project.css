@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* Application Styles */
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #f3f3f4;
+  color: #858585;
+}
+header {
+  display: block;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+header img {
+  width: 100%;
+  border-bottom: 1px solid #858585;
+}
+.row-container {
+  display: block;
+  width: 100%;
+}
+.row-container .row {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.row-container .row #count-container {
+  font-size: 40px;
+}
+.row-container .row #elapsed-time {
+  font-size: 36px;
+}
+.row-container .row .entries {
+  font-size: 40px;
+}
+.row-container .row form {
+  margin-top: 50px;
+}
+.row-container .row input {
+  padding: 5px;
+  border: 0;
+  background: #f3f3f4;
+  border-bottom: 1px solid #858585;
+  text-align: center;
+}
+.row-container .row img.people-icon,
+.row-container .row img.time-icon,
+.row-container .row img.money-top-icon {
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin: 20px auto;
+}
+.row-container .row img.money-icon {
+  float: left;
+  width: 23px;
+  height: 23px;
+}
+.row-container .row button.add-btn {
+  width: 35px;
+  height: 35px;
+  border: 0;
+  background: url("/images/ic_add.png") no-repeat;
+  background-size: cover;
+  text-indent: 999999px;
+}
+.row-container .row button.start-timer {
+  display: block;
+  width: 123px;
+  height: 123px;
+  margin: 0 auto;
+  border: 0;
+  text-indent: 99999px;
+  background: url("/images/ic_control_start.png") no-repeat;
+  background-size: cover;
+}
+.row-container .row button.stop-timer {
+  display: block;
+  width: 123px;
+  height: 123px;
+  margin: 0 auto;
+  border: 0;
+  text-indent: 99999px;
+  background: url("/images/ic_control_pause.png") no-repeat;
+  background-size: cover;
+}
