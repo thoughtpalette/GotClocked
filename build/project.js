@@ -85,17 +85,22 @@ angular.module( "vokal.controllers", [] )
         $scope.stopMeeting = function () {
             count.stop();
             $( "#elapsed-time" ).runner( "stop" );
+            $scope.stopped = true;
         };
 
         $scope.resumeMeeting = function () {
             count.resume();
             $( "#elapsed-time" ).runner( "start" );
+            $scope.stopped = false;
         };
 
         $scope.resetMeeting = function () {
             $( "#elapsed-time" ).runner( "stop" );
             $( "#elapsed-time" ).runner( "reset" );
             $scope.meetingStarted = false;
+            $scope.stopped = false;
+            $scope.entries = 0;
+            $scope.totalRate = 0;
             count.reset();
         };
 

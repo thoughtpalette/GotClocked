@@ -45,6 +45,9 @@ header img {
   border-bottom: 1px solid #858585;
   text-align: center;
 }
+.row-container .row button.stop-timer.stopped {
+  display: none;
+}
 .row-container .row img.people-icon,
 .row-container .row img.time-icon,
 .row-container .row img.money-top-icon {
@@ -85,4 +88,7 @@ header img {
   text-indent: 99999px;
   background: url("/images/ic_control_pause.png") no-repeat;
   background-size: cover;
+}
+.row-container .row button.reset-timer {
+  display: block;
 }
