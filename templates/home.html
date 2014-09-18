@@ -27,7 +27,7 @@
         </form>
 
         <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()">Start</button>
-        <button class="stop-timer" data-ng-show="meetingStarted" data-ng-click="stopMeeting()">Stop</button>
+        <button class="stop-timer" data-ng-class="{'stopped' : stopped }" data-ng-show="meetingStarted" data-ng-click="stopMeeting();">Stop</button>
         <button class="start-timer" data-ng-show="stopped" data-ng-click="resumeMeeting()">Resume</button>
         <button class="reset-timer" data-ng-show="stopped" data-ng-click="resetMeeting()">Reset</button>
     </div>
