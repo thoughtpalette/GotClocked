@@ -7,18 +7,20 @@
 
         <span class="entries" data-ng-hide="meetingStarted">{{entries}}</span>
 
-        <img data-ng-show="meetingStarted" class="money-top-icon" src="/images/ic_money.png" alt="">
+        <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="money-top-icon" src="/images/ic_money_on.png" alt="">
+        <img data-ng-show="stopped" class="money-top-icon" src="/images/ic_money.png" alt="">
 
-        <div data-ng-show="meetingStarted" id="count-container">
+        <div data-ng-show="meetingStarted" id="count-container" data-ng-class="{'stopped' : stopped }">
             0
         </div>
     </div>
 
     <div class="row">
 
-        <img data-ng-show="meetingStarted" class="time-icon" src="/images/ic_clock.png" alt="">
+        <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="time-icon" src="/images/ic_clock.png" alt="">
+        <img data-ng-show="stopped" class="time-icon" src="/images/ic_clock_pause.png" alt="">
 
-        <div data-ng-show="meetingStarted" id="elapsed-time">00:00:00</div>
+        <div data-ng-show="meetingStarted" id="elapsed-time" data-ng-class="{'stopped' : stopped }">00:00:00</div>
 
         <form data-ng-hide="meetingStarted" name="rate-form" data-ng-submit="addRate(rate)">
             <img class="money-icon" src="/images/ic_money.png" alt="">
@@ -27,8 +29,11 @@
         </form>
 
         <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()">Start</button>
-        <button class="stop-timer" data-ng-show="meetingStarted" data-ng-click="stopMeeting()">Stop</button>
-        <button class="start-timer" data-ng-show="stopped" data-ng-click="resumeMeeting()">Resume</button>
-        <button class="reset-timer" data-ng-show="stopped" data-ng-click="resetMeeting()">Reset</button>
+        <button class="stop-timer" data-ng-class="{'stopped' : stopped }" data-ng-show="meetingStarted" data-ng-click="stopMeeting();">Stop</button>
+
+        <div class="paused-controls">
+            <button class="start-timer-resume" data-ng-show="stopped" data-ng-click="resumeMeeting()">Resume</button>
+            <button class="reset-timer" data-ng-show="stopped" data-ng-click="resetMeeting()">Reset</button>
+        </div>
     </div>
 </div>
