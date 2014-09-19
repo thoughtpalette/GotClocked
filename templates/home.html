@@ -5,7 +5,11 @@
 
         <img data-ng-hide="meetingStarted" class="people-icon" src="/images/ic_people.png" alt="">
 
-        <span class="entries" data-ng-hide="meetingStarted">{{entries}}</span>
+        <ul class="entries clearfix" data-ng-hide="meetingStarted">
+            <li data-ng-repeat="entry in entries" data-ng-click="removeRate(entry)">
+                {{entry.rate}}
+            </li>
+        </ul>
 
         <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="money-top-icon" src="/images/ic_money_on.png" alt="">
         <img data-ng-show="stopped" class="money-top-icon" src="/images/ic_money.png" alt="">

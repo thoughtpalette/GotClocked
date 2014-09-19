@@ -19,13 +19,13 @@ angular.module( "vokal", [
 	{
 		$routeProvider.when( "/", { templateUrl: STATIC_PATH + "templates/home.html", controller: "Home" } );
 		$routeProvider.otherwise( { redirectTo: "/" } );
-	
+
 		$locationProvider.html5Mode( true ).hashPrefix( "!" );
-	
+
 		$sceDelegateProvider.resourceUrlWhitelist(
 			[ "self", "http://*.s3.amazonaws.com/**", "https://*.s3.amazonaws.com/**" ]
 		);
-	
+
 	}
 
 ] );

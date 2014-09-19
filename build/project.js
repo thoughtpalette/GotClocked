@@ -19,13 +19,13 @@ angular.module( "vokal", [
 	{
 		$routeProvider.when( "/", { templateUrl: STATIC_PATH + "templates/home.html", controller: "Home" } );
 		$routeProvider.otherwise( { redirectTo: "/" } );
-	
+
 		$locationProvider.html5Mode( true ).hashPrefix( "!" );
-	
+
 		$sceDelegateProvider.resourceUrlWhitelist(
 			[ "self", "http://*.s3.amazonaws.com/**", "https://*.s3.amazonaws.com/**" ]
 		);
-	
+
 	}
 
 ] );
@@ -53,13 +53,31 @@ angular.module( "vokal.controllers", [] )
 	{
         var count;
         $scope.totalRate = 0;
-        $scope.entries = 0;
+        $scope.entries = [];
         $scope.meetingStarted = false;
         $scope.everySecond = 0;
 
         $scope.addRate = function ( rate ) {
-            $scope.entries = $scope.entries + 1;
-            $scope.totalRate = parseInt($scope.totalRate) + parseInt(rate);
+            $scope.entry = {
+                rate: rate
+            };
+
+            $scope.entries.push($scope.entry);
+
+            $scope.totalRate = $scope.totalRate + parseInt(rate);
+        };
+
+        $scope.removeRate = function ( rate ) {
+
+            $scope.totalRate = $scope.totalRate - parseInt(rate.rate);
+
+            $.each($scope.entries, function(i){
+                if($scope.entries[i] === rate) {
+                    $scope.entries.splice(i,1);
+                    return false;
+                }
+            });
+
         };
 
         // countUp.js configuration
@@ -73,6 +91,7 @@ angular.module( "vokal.controllers", [] )
         };
 
         $scope.startMeeting = function () {
+
             // Multiply rate by four to account for 4 hours (14400ms)
             count = new countUp( "count-container", 0, $scope.totalRate * 4, 2, 14400, options );
             count.start();
@@ -96,11 +115,12 @@ angular.module( "vokal.controllers", [] )
         };
 
         $scope.resetMeeting = function () {
+            // Need to stop before reset due to plugin constraints
             $( "#elapsed-time" ).runner( "stop" );
             $( "#elapsed-time" ).runner( "reset" );
             $scope.meetingStarted = false;
             $scope.stopped = false;
-            $scope.entries = 0;
+            $scope.entries = [];
             $scope.totalRate = 0;
             count.reset();
         };

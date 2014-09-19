@@ -1,4 +1,11 @@
 module.exports = {
+	livereload: {
+		 options: {livereload: true},
+		 files: [
+		 	'source/**/*',
+		 	'templates/**'
+		 ]
+	},
 	jshint:
 	{
 		files: "<%= jshint.all.src %>",
