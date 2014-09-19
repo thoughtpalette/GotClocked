@@ -73,6 +73,9 @@ header img {
   margin-top: 50px;
   margin-bottom: 20px;
 }
+.row-container .row .disabled {
+  opacity: .3;
+}
 .row-container .row input {
   padding: 5px;
   border: 0;

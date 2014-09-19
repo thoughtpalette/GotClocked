@@ -26,13 +26,13 @@
 
         <div data-ng-show="meetingStarted" id="elapsed-time" data-ng-class="{'stopped' : stopped }">00:00:00</div>
 
-        <form data-ng-hide="meetingStarted" name="rate-form" data-ng-submit="addRate(rate)">
+        <form data-ng-hide="meetingStarted" name="rateform" data-ng-submit="addRate(rate)">
             <img class="money-icon" src="/images/ic_money.png" alt="">
-            <input type="text" name="rate" id="rate" data-ng-model="rate" placeholder="Enter Participant Rate">
-            <button class="add-btn" type="submit">Add</button>
+            <input type="number" name="rate" id="rate" data-ng-model="rate" placeholder="Enter Participant Rate">
+            <button class="add-btn" type="submit" data-ng-class="{'disabled' : rate === undefined || rate === null}" data-ng-disabled="rate === undefined || rate === null">Add</button>
         </form>
 
-        <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()">Start</button>
+        <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()" data-ng-class="{'disabled' : !entries.length }" data-ng-disabled="!entries.length">Start</button>
         <button class="stop-timer" data-ng-class="{'stopped' : stopped }" data-ng-show="meetingStarted" data-ng-click="stopMeeting();">Stop</button>
 
         <div class="paused-controls">

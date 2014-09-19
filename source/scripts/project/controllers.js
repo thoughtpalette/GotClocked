@@ -30,9 +30,12 @@ angular.module( "vokal.controllers", [] )
                 rate: rate
             };
 
-            $scope.entries.push($scope.entry);
+            if ( rate !== null && rate !== undefined ) {
+                $scope.entries.push($scope.entry);
+                $scope.totalRate = $scope.totalRate + parseInt(rate);
+            }
 
-            $scope.totalRate = $scope.totalRate + parseInt(rate);
+            $scope.rate = null;
         };
 
         $scope.removeRate = function ( rate ) {
