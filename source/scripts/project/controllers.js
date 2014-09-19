@@ -33,7 +33,7 @@ angular.module( "vokal.controllers", [] )
         // countUp.js configuration
         // http://inorganik.github.io/countUp.js/
         var options = {
-            useEasing : true,
+            useEasing : false,
             useGrouping : true,
             separator : ",",
             prefix: "$",
@@ -41,7 +41,8 @@ angular.module( "vokal.controllers", [] )
         };
 
         $scope.startMeeting = function () {
-            count = new countUp( "count-container", 0, $scope.totalRate, 2, 7200, options );
+            // Multiply rate by four to account for 4 hours (14400ms)
+            count = new countUp( "count-container", 0, $scope.totalRate * 4, 2, 14400, options );
             count.start();
             $('#elapsed-time').runner({
                 autostart: true,

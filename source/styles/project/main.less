@@ -2,6 +2,8 @@
 
 @background-color: #F3F3F4;
 @font-color: #858585;
+@green: #5FBA47;
+@orange: #FCB040;
 
 /* Application Styles */
 
@@ -37,10 +39,19 @@ header {
 
         #count-container {
             font-size: 40px;
+            color: @green;
+        }
+
+        #count-container.stopped {
+            color: @font-color;
         }
 
         #elapsed-time {
             font-size: 36px;
+        }
+
+        #elapsed-time.stopped {
+            color: @orange;
         }
 
         .entries {
@@ -59,7 +70,9 @@ header {
             text-align: center;
         }
 
-        button.stop-timer.stopped {
+        button.stop-timer.stopped,
+        img.money-top-icon.stopped,
+        img.time-icon.stopped {
             display: none;
         }
 
@@ -87,7 +100,13 @@ header {
             text-indent: 999999px;
         }
 
-        button.start-timer {
+        .paused-controls {
+            width: 246px;
+            margin: 0 auto;
+        }
+
+        button.start-timer,
+        button.stop-timer {
             display: block;
             width: 123px;
             height: 123px;
@@ -98,19 +117,30 @@ header {
             background-size: cover;
         }
 
-        button.stop-timer {
+        button.reset-timer,
+        button.start-timer-resume {
             display: block;
+            float: left;
             width: 123px;
             height: 123px;
             margin: 0 auto;
             border: 0;
             text-indent: 99999px;
+        }
+
+        button.reset-timer {
+            background: url( "/images/ic_control_reset.png" ) no-repeat;
+            background-size: cover;
+        }
+
+        button.stop-timer {
             background: url( "/images/ic_control_pause.png" ) no-repeat;
             background-size: cover;
         }
 
-        button.reset-timer {
-            display: block;
+        button.start-timer-resume {
+            background: url( "/images/ic_control_start.png" ) no-repeat;
+            background-size: cover;
         }
 
     }

@@ -28,9 +28,16 @@ header img {
 }
 .row-container .row #count-container {
   font-size: 40px;
+  color: #5fba47;
+}
+.row-container .row #count-container.stopped {
+  color: #858585;
 }
 .row-container .row #elapsed-time {
   font-size: 36px;
+}
+.row-container .row #elapsed-time.stopped {
+  color: #fcb040;
 }
 .row-container .row .entries {
   font-size: 40px;
@@ -45,7 +52,9 @@ header img {
   border-bottom: 1px solid #858585;
   text-align: center;
 }
-.row-container .row button.stop-timer.stopped {
+.row-container .row button.stop-timer.stopped,
+.row-container .row img.money-top-icon.stopped,
+.row-container .row img.time-icon.stopped {
   display: none;
 }
 .row-container .row img.people-icon,
@@ -69,7 +78,12 @@ header img {
   background-size: cover;
   text-indent: 999999px;
 }
-.row-container .row button.start-timer {
+.row-container .row .paused-controls {
+  width: 246px;
+  margin: 0 auto;
+}
+.row-container .row button.start-timer,
+.row-container .row button.stop-timer {
   display: block;
   width: 123px;
   height: 123px;
@@ -79,16 +93,25 @@ header img {
   background: url("/images/ic_control_start.png") no-repeat;
   background-size: cover;
 }
-.row-container .row button.stop-timer {
+.row-container .row button.reset-timer,
+.row-container .row button.start-timer-resume {
   display: block;
+  float: left;
   width: 123px;
   height: 123px;
   margin: 0 auto;
   border: 0;
   text-indent: 99999px;
+}
+.row-container .row button.reset-timer {
+  background: url("/images/ic_control_reset.png") no-repeat;
+  background-size: cover;
+}
+.row-container .row button.stop-timer {
   background: url("/images/ic_control_pause.png") no-repeat;
   background-size: cover;
 }
-.row-container .row button.reset-timer {
-  display: block;
+.row-container .row button.start-timer-resume {
+  background: url("/images/ic_control_start.png") no-repeat;
+  background-size: cover;
 }
