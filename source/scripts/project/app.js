@@ -17,6 +17,7 @@ angular.module( "vokal", [
 
 	function ( $routeProvider, $locationProvider, $sceDelegateProvider )
 	{
+		$routeProvider.when( "/app", { templateUrl: STATIC_PATH + "templates/app.html", controller: "App" } );
 		$routeProvider.when( "/", { templateUrl: STATIC_PATH + "templates/home.html", controller: "Home" } );
 		$routeProvider.otherwise( { redirectTo: "/" } );
 

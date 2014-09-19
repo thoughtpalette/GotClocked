@@ -2,3 +2,4 @@ node_modules
 /source/components
 !/build/README.md
 .vagrant
+.DS_Store

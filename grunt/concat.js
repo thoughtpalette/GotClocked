@@ -39,11 +39,20 @@ module.exports = {
 		],
 		dest: "build/angular.js"
 	},
+	bigVideo:
+	{
+		src: [
+			"source/components/video.js/dist/video-js/video.js",
+			"source/components/BigVideo.js/lib/bigvideo.js"
+		],
+		dest: "build/bigvideo.js"
+	},
 	styles:
 	{
 		src: [
 			"source/styles/library/reset.css",
-			"source/styles/library/vokal.css"
+			"source/styles/library/vokal.css",
+			"source/components/BigVideo.js/css/bigvideo.css"
 		],
 		dest: "build/base.css"
 	}
