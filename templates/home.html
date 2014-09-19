@@ -36,7 +36,7 @@
 
         <form data-ng-hide="meetingStarted" name="rateform" data-ng-submit="addRate(rate)">
             <img class="money-icon" src="/images/ic_money.png" alt="">
-            <input type="number" name="rate" id="rate" data-ng-model="rate" placeholder="Enter Participant Rate">
+            <input type="number" name="rate" id="rate" data-ng-model="rate" placeholder="    Enter an Hourly Rate">
             <button class="add-btn" type="submit" data-ng-class="{'disabled' : rate === undefined || rate === null}" data-ng-disabled="rate === undefined || rate === null">Add</button>
             <span>Per hr</span>
         </form>
