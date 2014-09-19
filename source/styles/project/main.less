@@ -27,8 +27,7 @@ body {
 
 header {
     display: block;
-    padding: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 
     img {
         width: 100%;
@@ -45,22 +44,55 @@ header {
         max-width: 400px;
         margin: 0 auto;
         text-align: center;
+        padding: 20px 20px 5px 20px;
 
-        #count-container {
-            font-size: 40px;
-            color: @green;
+        p {
+            font-size: 12px;
         }
 
-        #count-container.stopped {
-            color: @font-color;
+        .dollar-counter {
+            position: relative;
+
+            #count-container {
+                position: relative;
+                font-size: 40px;
+                color: @green;
+                padding-bottom: 10px;
+                border-bottom: 1px solid @font-color;
+
+                &.stopped {
+                    color: @font-color;
+                }
+            }
+
+            span {
+                position: absolute;
+                right: 0;
+                bottom: -15px;
+                font-size: 11px;
+            }
         }
 
-        #elapsed-time {
-            font-size: 36px;
-        }
+        .time-wrapper {
+            position: relative;
+            margin-bottom: 40px;
 
-        #elapsed-time.stopped {
-            color: @orange;
+            #elapsed-time {
+                font-size: 36px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid @font-color;
+
+                &.stopped {
+                    color: @orange;
+                }
+            }
+
+            span {
+                position: absolute;
+                right: 0;
+                bottom: -15px;
+                font-size: 11px;
+            }
         }
 
         .entries {
@@ -69,45 +101,54 @@ header {
             padding: 5%;
             font-size: 12px;
             color: #FFFFFF;
-        }
 
-        .entries li {
-            position: relative;
-            float: left;
-            width: 42px;
-            height: 42px;
-            margin: 0 10px 10px 0;
-            text-align: center;
-            line-height: 42px;
-            background: @person-background url("/images/rate-x.png") no-repeat bottom center;
-            background-size: 8px;
-            background-position: 17px 30px;
-            border-radius: 21px;
-            cursor: pointer;
+            li {
+                position: relative;
+                float: left;
+                width: 42px;
+                height: 42px;
+                margin: 0 10px 10px 0;
+                text-align: center;
+                line-height: 42px;
+                background: @person-background url("/images/rate-x.png") no-repeat bottom center;
+                background-size: 8px;
+                background-position: 17px 30px;
+                border-radius: 21px;
+                cursor: pointer;
+            }
         }
 
         form {
+            position: relative;
             width: 286px;
             margin: 0 auto;
             margin-top: 50px;
             margin-bottom: 20px;
+
+            input {
+                padding: 5px;
+                border: 0;
+                background: @background-color;
+                border-bottom: 1px solid @font-color;
+                text-align: center;
+            }
+
+            span {
+                position: absolute;
+                right: 43px;
+                bottom: -15px;
+                font-size: 11px;
+            }
         }
 
         .disabled {
             opacity: .3;
         }
 
-        input {
-            padding: 5px;
-            border: 0;
-            background: @background-color;
-            border-bottom: 1px solid @font-color;
-            text-align: center;
-        }
-
         button.stop-timer.stopped,
         img.money-top-icon.stopped,
-        img.time-icon.stopped {
+        img.time-icon.stopped,
+        p.stopped {
             display: none;
         }
 

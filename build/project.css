@@ -16,8 +16,7 @@ body {
 }
 header {
   display: block;
-  padding: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 header img {
   width: 100%;
@@ -32,19 +31,47 @@ header img {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+  padding: 20px 20px 5px 20px;
 }
-.row-container .row #count-container {
+.row-container .row p {
+  font-size: 12px;
+}
+.row-container .row .dollar-counter {
+  position: relative;
+}
+.row-container .row .dollar-counter #count-container {
+  position: relative;
   font-size: 40px;
   color: #5fba47;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #858585;
 }
-.row-container .row #count-container.stopped {
+.row-container .row .dollar-counter #count-container.stopped {
   color: #858585;
 }
-.row-container .row #elapsed-time {
-  font-size: 36px;
+.row-container .row .dollar-counter span {
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+  font-size: 11px;
 }
-.row-container .row #elapsed-time.stopped {
+.row-container .row .time-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+.row-container .row .time-wrapper #elapsed-time {
+  font-size: 36px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #858585;
+}
+.row-container .row .time-wrapper #elapsed-time.stopped {
   color: #fcb040;
+}
+.row-container .row .time-wrapper span {
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+  font-size: 11px;
 }
 .row-container .row .entries {
   width: 300px;
@@ -68,24 +95,32 @@ header img {
   cursor: pointer;
 }
 .row-container .row form {
+  position: relative;
   width: 286px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
 }
-.row-container .row .disabled {
-  opacity: .3;
-}
-.row-container .row input {
+.row-container .row form input {
   padding: 5px;
   border: 0;
   background: #f3f3f4;
   border-bottom: 1px solid #858585;
   text-align: center;
 }
+.row-container .row form span {
+  position: absolute;
+  right: 43px;
+  bottom: -15px;
+  font-size: 11px;
+}
+.row-container .row .disabled {
+  opacity: .3;
+}
 .row-container .row button.stop-timer.stopped,
 .row-container .row img.money-top-icon.stopped,
-.row-container .row img.time-icon.stopped {
+.row-container .row img.time-icon.stopped,
+.row-container .row p.stopped {
   display: none;
 }
 .row-container .row img.people-icon,
