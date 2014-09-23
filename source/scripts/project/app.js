@@ -13,6 +13,19 @@ angular.module( "vokal", [
 	"vokal.controllers"
 ] )
 
+.run( function ( $rootScope, $route, $location ) {
+
+  $rootScope.$on('$locationChangeStart', function(ev, next, current) {
+
+	if ( Modernizr.mq( "only screen and ( max-width: 768px )" ) && Modernizr.touch )
+	{
+		$location.path( "/app" );
+	}
+
+  });
+
+})
+
 .config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
 
 	function ( $routeProvider, $locationProvider, $sceDelegateProvider )

@@ -22,7 +22,7 @@ angular.module( "vokal.controllers", [] )
         $(function() {
             var BV = new $.BigVideo();
             BV.init();
-            BV.show( "got-clocked-scaled.mp4",{ambient:true});
+            BV.show( "build/got-clocked-scaled.mp4",{ambient:true});
         });
 
         $timeout( function () {
@@ -75,6 +75,7 @@ angular.module( "vokal.controllers", [] )
         //     $interval( function () {
         //         var dollarString = angular.element('#count-container').text(),
         //             dollarNum = dollarString.replace(/\$/g, '');
+        //             dollarNum = parseInt(dollarNum, 10);
 
         //             if ( dollarNum > 140 && dollarNum < 179 )
         //             {

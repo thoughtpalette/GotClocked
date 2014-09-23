@@ -11,15 +11,17 @@
 
 		<link rel="stylesheet" href="<%= STATIC_PATH %>build/base.css">
 		<link rel="stylesheet" href="<%= STATIC_PATH %>build/project.css">
+
+		<script>
+			var STATIC_PATH = "<%= STATIC_PATH %>";
+		</script>
+
+		<script src="<%= STATIC_PATH %>build/modernizr.custom.js"></script>
 	</head>
 
 	<body data-ng-controller="Site">
 
 		<main data-ng-view></main>
-
-		<script>
-			var STATIC_PATH = "<%= STATIC_PATH %>";
-		</script>
 
 		<script src="<%= STATIC_PATH %>build/jquery.js"></script>
 		<script src="<%= STATIC_PATH %>build/timer.js"></script>

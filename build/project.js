@@ -13,6 +13,19 @@ angular.module( "vokal", [
 	"vokal.controllers"
 ] )
 
+.run( function ( $rootScope, $route, $location ) {
+
+  $rootScope.$on('$locationChangeStart', function(ev, next, current) {
+
+	if ( Modernizr.mq( "only screen and ( max-width: 768px )" ) && Modernizr.touch )
+	{
+		$location.path( "/app" );
+	}
+
+  });
+
+})
+
 .config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
 
 	function ( $routeProvider, $locationProvider, $sceDelegateProvider )
@@ -55,7 +68,7 @@ angular.module( "vokal.controllers", [] )
         $(function() {
             var BV = new $.BigVideo();
             BV.init();
-            BV.show( "got-clocked-scaled.mp4",{ambient:true});
+            BV.show( "build/got-clocked-scaled.mp4",{ambient:true});
         });
 
         $timeout( function () {
@@ -108,6 +121,7 @@ angular.module( "vokal.controllers", [] )
         //     $interval( function () {
         //         var dollarString = angular.element('#count-container').text(),
         //             dollarNum = dollarString.replace(/\$/g, '');
+        //             dollarNum = parseInt(dollarNum, 10);
 
         //             if ( dollarNum > 140 && dollarNum < 179 )
         //             {

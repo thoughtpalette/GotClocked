@@ -47,6 +47,13 @@ module.exports = {
 		],
 		dest: "build/bigvideo.js"
 	},
+	modernizr:
+	{
+		src: [
+			"source/scripts/library/modernizr.custom.js"
+		],
+		dest: "build/modernizr.custom.js"
+	},
 	styles:
 	{
 		src: [
