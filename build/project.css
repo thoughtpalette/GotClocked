@@ -185,7 +185,6 @@ span.vokal-tag a:hover {
   position: relative;
   width: 286px;
   margin: 0 auto;
-  margin-top: 50px;
   margin-bottom: 20px;
 }
 .row-container .row #rate-form input {
@@ -366,4 +365,9 @@ span.vokal-tag a:hover {
   float: none;
   margin: 0 auto;
   margin-top: 40px;
+}
+@media screen and (max-width: 480px) {
+  header .row p.tag-line {
+    font-size: 7px;
+  }
 }
