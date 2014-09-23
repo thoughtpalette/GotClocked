@@ -161,7 +161,7 @@ header {
             }
         }
 
-        form {
+        #rate-form {
             position: relative;
             width: 286px;
             margin: 0 auto;
@@ -191,7 +191,8 @@ header {
         button.stop-timer.stopped,
         img.money-top-icon.stopped,
         img.time-icon.stopped,
-        p.stopped {
+        p.stopped,
+        button.stopped {
             display: none;
         }
 
@@ -221,7 +222,8 @@ header {
         }
 
         .paused-controls {
-            width: 246px;
+            position: relative;
+            max-width: 302px;
             margin: 0 auto;
         }
 
@@ -249,6 +251,7 @@ header {
         }
 
         button.reset-timer {
+            float: right;
             background: url( "/images/ic_control_reset.png" ) no-repeat;
             background-size: cover;
         }
@@ -261,6 +264,101 @@ header {
         button.start-timer-resume {
             background: url( "/images/ic_control_start.png" ) no-repeat;
             background-size: cover;
+        }
+
+        button.email-time {
+            position: absolute;
+            left: 50%;
+            width: 45px;
+            height: 45px;
+            margin-left: -22px;
+            bottom: -10px;
+            border: 0;
+            text-indent: 99999px;
+            background: url( "/images/ic_mail.png" ) no-repeat;
+            background-size: cover;
+        }
+
+        img.email-icon {
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .time-elapsed,
+        .money-spent {
+            display: block;
+            width: 80%;
+            text-align: center;
+            letter-spacing: 2px;
+            margin: 20px auto;
+        }
+
+        .time-elapsed {
+            font-size: 35px;
+            background: url( "/images/ic_clock.png" ) no-repeat left;
+            background-size: 20px;
+        }
+
+        .money-spent {
+            font-size: 45px;
+            font-weight: bold;
+            background: url( "/images/ic_money.png" ) no-repeat left;
+            background-size: 20px;
+        }
+
+        #email-form {
+            width: 100%;
+            margin: 0 auto;
+
+            .form-wrapper {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            span,
+            input,
+            button {
+                float: left;
+            }
+
+            span {
+                display: block;
+                width: 30px;
+                height: 30px;
+                background: url( "/images/ic_close_input.png" ) no-repeat;
+                background-size: cover;
+                cursor: pointer;
+            }
+
+            input {
+                width: 63%;
+                font-size: 15px;
+                padding: 5px;
+                border: 0;
+                background: @background-color;
+                border-bottom: 1px solid @font-color;
+                text-align: center;
+            }
+
+            button {
+                width: 50px;
+                height: 38px;
+                color: #FFFFFF;
+                font-size: 12px;
+                text-align: center;
+                line-height: 35px;
+                background: @green;
+                border: 0;
+                border-radius: 7px;
+                margin-left: 10px;
+
+                &:hover {
+                    background: @orange;
+                }
+            }
         }
 
     }

@@ -135,21 +135,21 @@ header img {
   border-radius: 21px;
   cursor: pointer;
 }
-.row-container .row form {
+.row-container .row #rate-form {
   position: relative;
   width: 286px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
 }
-.row-container .row form input {
+.row-container .row #rate-form input {
   padding: 5px;
   border: 0;
   background: #f3f3f4;
   border-bottom: 1px solid #858585;
   text-align: center;
 }
-.row-container .row form span {
+.row-container .row #rate-form span {
   position: absolute;
   right: 43px;
   bottom: -15px;
@@ -161,7 +161,8 @@ header img {
 .row-container .row button.stop-timer.stopped,
 .row-container .row img.money-top-icon.stopped,
 .row-container .row img.time-icon.stopped,
-.row-container .row p.stopped {
+.row-container .row p.stopped,
+.row-container .row button.stopped {
   display: none;
 }
 .row-container .row img.people-icon,
@@ -187,7 +188,8 @@ header img {
   text-indent: 999999px;
 }
 .row-container .row .paused-controls {
-  width: 246px;
+  position: relative;
+  max-width: 302px;
   margin: 0 auto;
 }
 .row-container .row button.start-timer,
@@ -212,6 +214,7 @@ header img {
   text-indent: 99999px;
 }
 .row-container .row button.reset-timer {
+  float: right;
   background: url("/images/ic_control_reset.png") no-repeat;
   background-size: cover;
 }
@@ -222,4 +225,87 @@ header img {
 .row-container .row button.start-timer-resume {
   background: url("/images/ic_control_start.png") no-repeat;
   background-size: cover;
+}
+.row-container .row button.email-time {
+  position: absolute;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  margin-left: -22px;
+  bottom: -10px;
+  border: 0;
+  text-indent: 99999px;
+  background: url("/images/ic_mail.png") no-repeat;
+  background-size: cover;
+}
+.row-container .row img.email-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.row-container .row .time-elapsed,
+.row-container .row .money-spent {
+  display: block;
+  width: 80%;
+  text-align: center;
+  letter-spacing: 2px;
+  margin: 20px auto;
+}
+.row-container .row .time-elapsed {
+  font-size: 35px;
+  background: url("/images/ic_clock.png") no-repeat left;
+  background-size: 20px;
+}
+.row-container .row .money-spent {
+  font-size: 45px;
+  font-weight: bold;
+  background: url("/images/ic_money.png") no-repeat left;
+  background-size: 20px;
+}
+.row-container .row #email-form {
+  width: 100%;
+  margin: 0 auto;
+}
+.row-container .row #email-form .form-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+.row-container .row #email-form span,
+.row-container .row #email-form input,
+.row-container .row #email-form button {
+  float: left;
+}
+.row-container .row #email-form span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url("/images/ic_close_input.png") no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.row-container .row #email-form input {
+  width: 63%;
+  font-size: 15px;
+  padding: 5px;
+  border: 0;
+  background: #f3f3f4;
+  border-bottom: 1px solid #858585;
+  text-align: center;
+}
+.row-container .row #email-form button {
+  width: 50px;
+  height: 38px;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-align: center;
+  line-height: 35px;
+  background: #5fba47;
+  border: 0;
+  border-radius: 7px;
+  margin-left: 10px;
+}
+.row-container .row #email-form button:hover {
+  background: #fcb040;
 }

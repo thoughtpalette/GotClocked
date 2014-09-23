@@ -34,15 +34,18 @@ angular.module( "vokal.controllers", [] )
 ] )
 
 
-.controller( "App", [ "$scope", "$interval",
+.controller( "App", [ "$scope", "$interval", "$timeout", "EmailService",
 
-	function ( $scope, $interval )
+	function ( $scope, $interval, $timeout, EmailService )
 	{
         var count;
         $scope.totalRate = 0;
         $scope.entries = [];
         $scope.meetingStarted = false;
         $scope.everySecond = 0;
+        $scope.emailClicked = false;
+        $scope.elapsedTime = null;
+        $scope.moneySpent = null;
 
         $scope.addRate = function ( rate ) {
             $scope.entry = {
@@ -73,7 +76,7 @@ angular.module( "vokal.controllers", [] )
         // $scope.moneyTalks = function () {
 
         //     $interval( function () {
-        //         var dollarString = angular.element('#count-container').text(),
+        //         var dollarString = angular.element( "#count-container" ).text(),
         //             dollarNum = dollarString.replace(/\$/g, '');
         //             dollarNum = parseInt(dollarNum, 10);
 
@@ -163,13 +166,17 @@ angular.module( "vokal.controllers", [] )
         $scope.stopMeeting = function () {
             count.stop();
             $( "#elapsed-time" ).runner( "stop" );
+            $scope.elapsedTime = angular.element( "#elapsed-time" ).text();
+            $scope.moneySpent = angular.element( "#count-container" ).text();
             $scope.stopped = true;
+            $scope.emailClicked = false;
         };
 
         $scope.resumeMeeting = function () {
             count.resume();
             $( "#elapsed-time" ).runner( "start" );
             $scope.stopped = false;
+            $scope.emailClicked = false;
         };
 
         $scope.resetMeeting = function () {
@@ -180,7 +187,27 @@ angular.module( "vokal.controllers", [] )
             $scope.stopped = false;
             $scope.entries = [];
             $scope.totalRate = 0;
+            $scope.emailClicked = false;
             count.reset();
+        };
+
+        $scope.showEmailForm = function () {
+            $scope.emailClicked = true;
+
+            $timeout( function () {
+                angular.element( "#email" ).trigger( "focus" );
+            }, 10);
+        };
+
+        $scope.sendEmail = function ( emailAddress ) {
+            EmailService.send(
+            {
+                email: emailAddress,
+                spent: $scope.moneySpent,
+                time: $scope.elapsedTime
+            });
+
+            $scope.email = null;
         };
 
 	}
