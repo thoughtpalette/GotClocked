@@ -25,7 +25,8 @@ body {
   z-index: 999999;
 }
 .go-to-app {
-  width: 50%;
+  width: 80%;
+  height: 25%;
   overflow: auto;
   margin: auto;
   position: absolute;
@@ -36,7 +37,7 @@ body {
 }
 .go-to-app a {
   display: block;
-  width: 50%;
+  width: 20%;
   height: 50px;
   color: #FFFFFF;
   text-align: center;
@@ -47,6 +48,17 @@ body {
 }
 .go-to-app a:hover {
   background: #fcb040;
+}
+.go-to-app p {
+  display: block;
+  width: 100%;
+  height: 50px;
+  font-size: 40px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 .clearfix:after {
   content: " ";
@@ -59,9 +71,40 @@ header {
   display: block;
   margin-bottom: 5px;
 }
-header img {
+header .row img {
   width: 100%;
+}
+header .row p.tag-line {
+  font-size: 10px;
+  margin: 0;
+  padding: 5px 0;
   border-bottom: 1px solid #858585;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  color: #b9b9b9;
+}
+span.vokal-tag {
+  display: block;
+  color: #b9b9b9;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+span.vokal-tag a {
+  display: inline;
+  width: auto;
+  height: auto;
+  color: #5fba47;
+  line-height: auto;
+  text-align: left;
+  margin: auto;
+  background: none;
+}
+span.vokal-tag a:hover {
+  background: none;
+  text-decoration: underline;
 }
 .row-container {
   display: block;
@@ -75,7 +118,7 @@ header img {
   padding: 20px 20px 5px 20px;
 }
 .row-container .row p {
-  font-size: 12px;
+  font-size: 15px;
 }
 .row-container .row p.timed-message {
   line-height: 18px;

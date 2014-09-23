@@ -47,6 +47,13 @@ module.exports = {
 		],
 		dest: "build/bigvideo.js"
 	},
+	moment:
+	{
+		src: [
+			"source/components/moment/min/moment.min.js"
+		],
+		dest: "build/moment.js"
+	},
 	modernizr:
 	{
 		src: [

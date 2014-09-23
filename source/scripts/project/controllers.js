@@ -22,7 +22,7 @@ angular.module( "vokal.controllers", [] )
         $(function() {
             var BV = new $.BigVideo();
             BV.init();
-            BV.show( "got-clocked-scaled.mp4",{ambient:true});
+            BV.show( "build/got-clocked-scaled.mp4",{ambient:true});
         });
 
         $timeout( function () {
@@ -47,6 +47,7 @@ angular.module( "vokal.controllers", [] )
         $scope.elapsedTime = null;
         $scope.moneySpent = null;
         $scope.emailSent = false;
+        $scope.timedMessage = null;
 
         $scope.addRate = function ( rate ) {
             $scope.entry = {
@@ -78,6 +79,7 @@ angular.module( "vokal.controllers", [] )
 
             $interval( function () {
                 var dollarString = angular.element( "#count-container" ).text(),
+                    dollarString = dollarString.replace(/\$/g, ''),
                     dollarNum = parseFloat( dollarString.replace( ",", "" ).replace( " ","" ) );
 
                     if ( dollarNum > 140 && dollarNum < 499 )
@@ -155,7 +157,8 @@ angular.module( "vokal.controllers", [] )
             useEasing : false,
             useGrouping : true,
             separator : ",",
-            decimal : "."
+            decimal : ".",
+            prefix : "$"
         };
 
         $scope.startMeeting = function () {
@@ -197,6 +200,7 @@ angular.module( "vokal.controllers", [] )
             $scope.totalRate = 0;
             $scope.emailClicked = false;
             $scope.emailSent = false;
+            $scope.timedMessage = null;
             count.reset();
         };
 
@@ -209,11 +213,22 @@ angular.module( "vokal.controllers", [] )
         };
 
         $scope.sendEmail = function ( emailAddress ) {
+            var dollarString = angular.element( "#count-container" ).text(),
+                dollarString = dollarString.replace(/\$/g, ''),
+                dollarNum = parseFloat( dollarString.replace( ",", "" ).replace( " ","" ) ),
+                moneySpentString = $scope.moneySpent.replace(/\$/g, ''),
+                totalMoneySpent = parseFloat( moneySpentString.replace( ",", "" ).replace( " ","" ) ),
+                groupAverage = parseInt($scope.totalRate / $scope.entries.length, 10);
+
             EmailService.send(
             {
                 email: emailAddress,
-                spent: $scope.moneySpent,
-                time: $scope.elapsedTime
+                spent: totalMoneySpent,
+                time: $scope.elapsedTime,
+                timeSent: moment().format('ddd MMM D, YYYY @ h:mma'),
+                participants: $scope.entries.length,
+                groupAvg: groupAverage,
+                perHrCost: $scope.totalRate
             });
 
             $scope.email = null;

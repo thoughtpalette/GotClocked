@@ -12,10 +12,16 @@ svcMod.factory( "EmailService", function ( $http, $rootScope ) {
 
 	    var emailObject = {
 		    "key": "wBlMhtN_NP65gijrfoap7w",
+		    "template_name": "gotclocked",
+		    "template_content": [
+		        {
+		            "name": "gotclocked"
+		        }
+		    ],
 		    "message": {
-		        "html": "<p>Money spent:" + data.spent + "</p> <p>Time Elapsed: " + data.time + "</p>",
+		        "html": "",
 		        "text": "Example text content",
-		        "subject": "Here's your meeting deets!",
+		        "subject": "Here are your meeting deets!",
 		        "from_email": "you@gotclocked.com",
 		        "from_name": "GotClocked.com",
 		        "to": [
@@ -41,23 +47,44 @@ svcMod.factory( "EmailService", function ( $http, $rootScope ) {
 		        "signing_domain": null,
 		        "return_path_domain": null,
 		        "merge": true,
-		        "global_merge_vars": [
-		            {
-		                "name": "merge1",
-		                "content": "merge1 content"
-		            }
-		        ],
-		        "merge_vars": [
-		            {
-		                "rcpt": "recipient.email@example.com",
-		                "vars": [
-		                    {
-		                        "name": "merge2",
-		                        "content": "merge2 content"
-		                    }
-		                ]
-		            }
-		        ],
+				"global_merge_vars": [
+				    {
+				        "name": "var1",
+				        "content": "Global Value 1"
+				    }
+				],
+				"merge_vars": [
+				    {
+				        "rcpt": data.email,
+				        "vars": [
+				            {
+				                "name": "timesent",
+				                "content": data.timeSent
+				            },
+				            {
+				                "name": "totaltime",
+				                "content": data.time
+				            },
+				            {
+				                "name": "participants",
+				                "content": data.participants
+				            },
+				            {
+				                "name": "groupaverage",
+				                "content": data.groupAvg
+				            },
+				            {
+				                "name": "totalcost",
+				                "content": data.spent
+				            },
+				            {
+				                "name": "perhrcost",
+				                "content": data.perHrCost
+				            }
+
+				        ]
+				    }
+				],
 		        "google_analytics_domains": [
 		            "gotclocked.com"
 		        ],
@@ -79,7 +106,7 @@ svcMod.factory( "EmailService", function ( $http, $rootScope ) {
 		};
 
 
-        return $http.post( "https://mandrillapp.com/api/1.0/messages/send.json", emailObject )
+        return $http.post( "https://mandrillapp.com/api/1.0/messages/send-template.json", emailObject )
         .then( function ( res )
         {
         	$rootScope.$broadcast( "emailSuccess" );
