@@ -7,81 +7,95 @@
 </header>
 
 <div class="row-container">
-    <div class="row" data-ng-hide="emailClicked">
 
-        <p data-ng-hide="meetingStarted">Who's getting clocked?</p>
-        <p data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }" >Budget's getting clocked</p>
-        <p data-ng-show="stopped" data-ng-class="{'stopped' : timedMessage }">Clock'n has been paused</p>
+    <div class="row sent" data-ng-show="emailSent">
+        <p>Email sent... whoopi</p>
 
-        <img data-ng-hide="meetingStarted" class="people-icon" src="/images/ic_people.png" alt="">
+        <img src="/images/ic_thumbs.png" alt="">
 
-        <ul class="entries clearfix" data-ng-hide="meetingStarted">
-            <li data-ng-repeat="entry in entries" data-ng-click="removeRate(entry)">
-                {{entry.rate}}
-            </li>
-        </ul>
-
-        <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="money-top-icon" src="/images/ic_money_on.png" alt="">
-        <img data-ng-show="stopped" class="money-top-icon" src="/images/ic_money.png" alt="">
-
-        <div class="dollar-counter" data-ng-show="meetingStarted">
-            <div id="count-container" data-ng-class="{'stopped' : stopped }">
-                0
+            <div class="paused-controls clearfix">
+                <button class="reset-timer" data-ng-click="resetMeeting()">Reset</button>
             </div>
-            <span>Money spent</span>
-        </div>
     </div>
 
-    <div class="row email" data-ng-show="emailClicked">
-        <p>Email to someone who cares</p>
+    <div data-ng-hide="emailSent">
 
-        <img class="email-icon" src="/images/ic_mail.png" alt="email icon">
+        <div class="row" data-ng-hide="emailClicked">
 
-        <div class="money-spent">
-            <span>{{moneySpent}}</span>
-        </div>
+            <p data-ng-hide="meetingStarted">Who's getting clocked?</p>
+            <p data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }" >Budget's getting clocked</p>
+            <p data-ng-show="stopped" data-ng-class="{'stopped' : timedMessage }">Clock'n has been paused</p>
 
-        <div class="time-elapsed">
-            <span>{{elapsedTime}}</span>
-        </div>
+            <img data-ng-hide="meetingStarted" class="people-icon" src="/images/ic_people.png" alt="">
 
-        <form id="email-form" class="clearfix" data-ng-submit="sendEmail(email)" autocomplete="off">
-            <div class="form-wrapper">
-                <span data-ng-click="emailClicked = false"></span>
-                <input type="email" data-ng-model="email" id="email" name="email" placeholder="Enter Recipient Email" required>
+            <ul class="entries clearfix" data-ng-hide="meetingStarted">
+                <li data-ng-repeat="entry in entries" data-ng-click="removeRate(entry)">
+                    {{entry.rate}}
+                </li>
+            </ul>
 
-                <button type="submit">Send</button>
-            </div>
-        </form>
+            <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="money-top-icon" src="/images/ic_money_on.png" alt="">
+            <img data-ng-show="stopped" class="money-top-icon" src="/images/ic_money.png" alt="">
 
-    </div>
-
-    <div class="row">
-
-        <div data-ng-hide="emailClicked">
-            <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="time-icon" src="/images/ic_clock.png" alt="">
-            <img data-ng-show="stopped" class="time-icon" src="/images/ic_clock_pause.png" alt="clock paused icon">
-
-            <div class="time-wrapper" data-ng-show="meetingStarted">
-                <div id="elapsed-time" data-ng-class="{'stopped' : stopped }">00:00:00</div>
-                <span>Elapsed Time</span>
+            <div class="dollar-counter" data-ng-show="meetingStarted">
+                <div id="count-container" data-ng-class="{'stopped' : stopped }">
+                    0
+                </div>
+                <span>Money spent</span>
             </div>
         </div>
 
-        <form id="rate-form" data-ng-hide="meetingStarted" name="rateform" data-ng-submit="addRate(rate)">
-            <img class="money-icon" src="/images/ic_money.png" alt="">
-            <input type="number" name="rate" id="rate" data-ng-model="rate" placeholder="    Enter an Hourly Rate">
-            <button class="add-btn" type="submit" data-ng-class="{'disabled' : rate === undefined || rate === null}" data-ng-disabled="rate === undefined || rate === null">Add</button>
-            <span>Per hr</span>
-        </form>
+        <div class="row email" data-ng-show="emailClicked">
+            <p>Email to someone who cares</p>
 
-        <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()" data-ng-class="{'disabled' : !entries.length }" data-ng-disabled="!entries.length">Start</button>
-        <button class="stop-timer" data-ng-class="{'stopped' : stopped }" data-ng-show="meetingStarted" data-ng-click="stopMeeting();">Stop</button>
+            <img class="email-icon" src="/images/ic_mail.png" alt="email icon">
 
-        <div class="paused-controls clearfix">
-            <button class="start-timer-resume" data-ng-show="stopped" data-ng-click="resumeMeeting()">Resume</button>
-            <button class="email-time" data-ng-show="stopped" data-ng-class="{'stopped' : emailClicked }" data-ng-click="showEmailForm()">Email</button>
-            <button class="reset-timer" data-ng-show="stopped" data-ng-click="resetMeeting()">Reset</button>
+            <div class="money-spent">
+                <span>{{moneySpent}}</span>
+            </div>
+
+            <div class="time-elapsed">
+                <span>{{elapsedTime}}</span>
+            </div>
+
+            <form id="email-form" class="clearfix" data-ng-submit="sendEmail(email)" autocomplete="off">
+                <div class="form-wrapper">
+                    <span data-ng-click="emailClicked = false"></span>
+                    <input type="email" data-ng-model="email" id="email" name="email" placeholder="Enter Recipient Email" required>
+
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="row">
+
+            <div data-ng-hide="emailClicked">
+                <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="time-icon" src="/images/ic_clock.png" alt="">
+                <img data-ng-show="stopped" class="time-icon" src="/images/ic_clock_pause.png" alt="clock paused icon">
+
+                <div class="time-wrapper" data-ng-show="meetingStarted">
+                    <div id="elapsed-time" data-ng-class="{'stopped' : stopped }">00:00:00</div>
+                    <span>Elapsed Time</span>
+                </div>
+            </div>
+
+            <form id="rate-form" data-ng-hide="meetingStarted" name="rateform" data-ng-submit="addRate(rate)">
+                <img class="money-icon" src="/images/ic_money.png" alt="">
+                <input type="number" name="rate" id="rate" data-ng-model="rate" placeholder="    Enter an Hourly Rate">
+                <button class="add-btn" type="submit" data-ng-class="{'disabled' : rate === undefined || rate === null}" data-ng-disabled="rate === undefined || rate === null">Add</button>
+                <span>Per hr</span>
+            </form>
+
+            <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()" data-ng-class="{'disabled' : !entries.length }" data-ng-disabled="!entries.length">Start</button>
+            <button class="stop-timer" data-ng-class="{'stopped' : stopped }" data-ng-show="meetingStarted" data-ng-click="stopMeeting();">Stop</button>
+
+            <div class="paused-controls clearfix">
+                <button class="start-timer-resume" data-ng-show="stopped" data-ng-click="resumeMeeting()">Resume</button>
+                <button class="email-time" data-ng-show="stopped" data-ng-class="{'stopped' : emailClicked }" data-ng-click="showEmailForm()">Email</button>
+                <button class="reset-timer" data-ng-show="stopped" data-ng-click="resetMeeting()">Reset</button>
+            </div>
         </div>
     </div>
 </div>

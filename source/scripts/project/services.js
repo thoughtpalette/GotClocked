@@ -4,7 +4,7 @@
 
 var svcMod = angular.module( "vokal.services", [] );
 
-svcMod.factory( "EmailService", function ( $http ) {
+svcMod.factory( "EmailService", function ( $http, $rootScope ) {
 
     var emailService = {};
 
@@ -82,7 +82,7 @@ svcMod.factory( "EmailService", function ( $http ) {
         return $http.post( "https://mandrillapp.com/api/1.0/messages/send.json", emailObject )
         .then( function ( res )
         {
-        	console.log( res );
+        	$rootScope.$broadcast( "emailSuccess" );
         });
     };
 

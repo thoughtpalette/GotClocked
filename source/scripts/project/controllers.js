@@ -46,6 +46,7 @@ angular.module( "vokal.controllers", [] )
         $scope.emailClicked = false;
         $scope.elapsedTime = null;
         $scope.moneySpent = null;
+        $scope.emailSent = false;
 
         $scope.addRate = function ( rate ) {
             $scope.entry = {
@@ -188,6 +189,7 @@ angular.module( "vokal.controllers", [] )
             $scope.entries = [];
             $scope.totalRate = 0;
             $scope.emailClicked = false;
+            $scope.emailSent = false;
             count.reset();
         };
 
@@ -209,6 +211,10 @@ angular.module( "vokal.controllers", [] )
 
             $scope.email = null;
         };
+
+        $scope.$on( "emailSuccess", function () {
+            $scope.emailSent = true;
+        });
 
 	}
 

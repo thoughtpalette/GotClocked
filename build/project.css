@@ -309,3 +309,15 @@ header img {
 .row-container .row #email-form button:hover {
   background: #fcb040;
 }
+.row-container .row.sent img {
+  display: block;
+  width: 122px;
+  height: 122px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.row-container .row.sent button {
+  float: none;
+  margin: 0 auto;
+  margin-top: 40px;
+}
