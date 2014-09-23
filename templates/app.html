@@ -23,8 +23,9 @@
         <div class="row" data-ng-hide="emailClicked">
 
             <p data-ng-hide="meetingStarted">Who's getting clocked?</p>
-            <p data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }" >Budget's getting clocked</p>
+            <p data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped, 'stopped' : timedMessage }" >Budget's getting clocked</p>
             <p data-ng-show="stopped" data-ng-class="{'stopped' : timedMessage }">Clock'n has been paused</p>
+            <p class="timed-message">{{timedMessage}}</p>
 
             <img data-ng-hide="meetingStarted" class="people-icon" src="/images/ic_people.png" alt="">
 
@@ -41,7 +42,7 @@
                 <div id="count-container" data-ng-class="{'stopped' : stopped }">
                     0
                 </div>
-                <span>Money spent</span>
+                <span>Money Spent</span>
             </div>
         </div>
 

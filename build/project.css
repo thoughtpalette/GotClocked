@@ -77,6 +77,9 @@ header img {
 .row-container .row p {
   font-size: 12px;
 }
+.row-container .row p.timed-message {
+  line-height: 18px;
+}
 .row-container .row .dollar-counter {
   position: relative;
 }

@@ -22,7 +22,7 @@ angular.module( "vokal.controllers", [] )
         $(function() {
             var BV = new $.BigVideo();
             BV.init();
-            BV.show( "build/got-clocked-scaled.mp4",{ambient:true});
+            BV.show( "got-clocked-scaled.mp4",{ambient:true});
         });
 
         $timeout( function () {
@@ -74,73 +74,88 @@ angular.module( "vokal.controllers", [] )
 
         };
 
-        // $scope.moneyTalks = function () {
+        $scope.moneyTalks = function () {
 
-        //     $interval( function () {
-        //         var dollarString = angular.element( "#count-container" ).text(),
-        //             dollarNum = dollarString.replace(/\$/g, '');
-        //             dollarNum = parseInt(dollarNum, 10);
+            $interval( function () {
+                var dollarString = angular.element( "#count-container" ).text(),
+                    dollarNum;
 
-        //             if ( dollarNum > 140 && dollarNum < 179 )
-        //             {
-        //                 $scope.timedMessage = "Whoever said quality beats quantity didn't have the opportunity to buy 10 cases of Natty Ice. You could've too for the price of that meeting";
-        //             }
-        //             else if ( dollarNum > 180 && dollarNum < 349 )
-        //             {
-        //                 $scope.timedMessage = "If that meeting took any longer, the McRib woulda' come back, and you coulda had 60 of 'em.";
-        //             }
-        //             else if ( dollarNum > 350 && dollarNum < 498 )
-        //             {
-        //                 $scope.timedMessage = "Hey Daddy, you just spent 100 Big Macs on that!";
-        //             }
-        //             else if ( dollarNum > 499 && dollarNum < 798 )
-        //             {
-        //                 $scope.timedMessage = "iPad";
-        //             }
-        //             else if ( dollarNum > 799 && dollarNum < 999 )
-        //             {
-        //                 $scope.timedMessage = "iPhones";
-        //             }
-        //             else if ( dollarNum > 1000 && dollarNum < 1749 )
-        //             {
-        //                 $scope.timedMessage = "Cluck Cluck, that meeting could have been 1000 McChicken Sammiches";
-        //             }
-        //             else if ( dollarNum > 1750 && dollarNum < 2999 )
-        //             {
-        //                 $scope.timedMessage = "You could have installed 25 above ground pools";
-        //             }
-        //             else if ( dollarNum > 3000 && dollarNum < 3599 )
-        //             {
-        //                 $scope.timedMessage = "High end escort";
-        //             }
-        //             else if ( dollarNum > 3600 && dollarNum < 4499 )
-        //             {
-        //                 $scope.timedMessage = "Dozen roses daily for 2 months";
-        //             }
-        //             else if ( dollarNum > 4500 && dollarNum < 24999 )
-        //             {
-        //                 $scope.timedMessage = "You could have bought 1/4 ton of tilapia";
-        //             }
-        //             else if ( dollarNum > 25000 && dollarNum < 77781  )
-        //             {
-        //                 $scope.timedMessage = "You could have bought hired Snooky to drink and dance with you";
-        //             }
-        //             else if ( dollarNum > 77782 && dollarNum < 99999 )
-        //             {
-        //                 $scope.timedMessage = "You could have paid 2 years tuition to Michigan State";
-        //             }
-        //             else if ( dollarNum > 100000 && dollarNum < 249999 )
-        //             {
-        //                 $scope.timedMessage = "You could have paid 2 years tuition to Michigan State";
-        //             }
-        //             else if ( dollarNum > 250000 )
-        //             {
-        //                 $scope.timedMessage = "Virgin Galactic tickets to go to space";
-        //             }
+                    if ( dollarString.indexOf( "," ) > -1 || dollarString.indexOf( "," ) > -2 || dollarString.indexOf( "," ) > -3 ) {
+                        dollarNum = parseFloat( dollarString.replace( ",", "" ).replace( " ","" ) );
+                    } else {
+                        dollarNum = parseInt( dollarString, 10 );
+                    }
+
+                    console.log( dollarNum );
+
+                    if ( dollarNum > 140 && dollarNum < 499 )
+                    {
+                        $scope.timedMessage = "Buy 10 cases of Natty Ice or do that meeting again. Costs the same.";
+                    }
+                    else if ( dollarNum > 500 && dollarNum < 848 )
+                    {
+                        $scope.timedMessage = "Hey Daddy, you just spent 100 Big Macs on that!";
+                    }
+                    else if ( dollarNum > 849 && dollarNum < 999 )
+                    {
+                        $scope.timedMessage = "You could have bought an unlocked, 128gb iPhone 6 by now";
+                    }
+                    else if ( dollarNum > 1000 && dollarNum < 1749 )
+                    {
+                        $scope.timedMessage = "Cluck Cluck, that meeting could have been 1000 McChicken Sammiches";
+                    }
+                    else if ( dollarNum > 1750 && dollarNum < 2199 )
+                    {
+                        $scope.timedMessage = "You could have installed 25 above ground pools";
+                    }
+                    else if ( dollarNum > 2200 && dollarNum < 2999 )
+                    {
+                        $scope.timedMessage = "Hey, that was a great comment just now. ";
+                    }
+                    else if ( dollarNum > 3000 && dollarNum < 3639 )
+                    {
+                        $scope.timedMessage = "If that meeting went any longer, you could've hired a friend for the evening.";
+                    }
+                    else if ( dollarNum > 3640 && dollarNum < 4499 )
+                    {
+                        $scope.timedMessage = "Flowers.com could've delivered a dozen roses to your mother every week for a year";
+                    }
+                    else if ( dollarNum > 4500 && dollarNum < 8999 )
+                    {
+                        $scope.timedMessage = "You could have bought 1/4 ton of tilapia";
+                    }
+                    else if ( dollarNum > 9000 && dollarNum < 19999 )
+                    {
+                        $scope.timedMessage = "When the McRib comes back, you could have gotten 3000 for the cost of this meetin'";
+                    }
+                    else if ( dollarNum > 20000 && dollarNum < 38890 )
+                    {
+                        $scope.timedMessage = "You could have hired Snooky to party with your friends";
+                    }
+                    else if ( dollarNum > 38891 && dollarNum < 99999 )
+                    {
+                        $scope.timedMessage = "You could have paid for a year of full tuition at Harvard";
+                    }
+                    else if ( dollarNum > 100000 && dollarNum < 249999 )
+                    {
+                        $scope.timedMessage = "You could have had Simon Cowell go to your company picnic";
+                    }
+                    else if ( dollarNum > 250000 && dollarNum < 399999 )
+                    {
+                        $scope.timedMessage = "A Virgin Galactic ticket.. to space. You could be in space. You, space. ";
+                    }
+                    else if ( dollarNum > 400000 && dollarNum < 599999 )
+                    {
+                        $scope.timedMessage = "You better have cured cancer by now";
+                    }
+                    else if ( dollarNum > 600000 )
+                    {
+                        $scope.timedMessage = "Get Clocked again";
+                    }
 
 
-        //     }, 10000);
-        // };
+            }, 10000);
+        };
 
         // countUp.js configuration
         // http://inorganik.github.io/countUp.js/
@@ -161,7 +176,7 @@ angular.module( "vokal.controllers", [] )
                 milliseconds: true
             });
             $scope.meetingStarted = true;
-            // $scope.moneyTalks();
+            $scope.moneyTalks();
         };
 
         $scope.stopMeeting = function () {
