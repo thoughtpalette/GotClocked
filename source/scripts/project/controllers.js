@@ -78,15 +78,7 @@ angular.module( "vokal.controllers", [] )
 
             $interval( function () {
                 var dollarString = angular.element( "#count-container" ).text(),
-                    dollarNum;
-
-                    if ( dollarString.indexOf( "," ) > -1 || dollarString.indexOf( "," ) > -2 || dollarString.indexOf( "," ) > -3 ) {
-                        dollarNum = parseFloat( dollarString.replace( ",", "" ).replace( " ","" ) );
-                    } else {
-                        dollarNum = parseInt( dollarString, 10 );
-                    }
-
-                    console.log( dollarNum );
+                    dollarNum = parseFloat( dollarString.replace( ",", "" ).replace( " ","" ) );
 
                     if ( dollarNum > 140 && dollarNum < 499 )
                     {
