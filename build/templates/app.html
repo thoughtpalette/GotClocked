@@ -24,7 +24,7 @@
         <div class="row" data-ng-hide="emailClicked">
 
             <p data-ng-hide="meetingStarted">Who's getting clocked?</p>
-            <p data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }" data-ng-class="{'stopped' : timedMessage }" >Budget's getting clocked</p>
+            <p data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped || timedMessage }">Budget's getting clocked</p>
             <p data-ng-show="stopped" data-ng-class="{'stopped' : timedMessage }">Clock'n has been paused</p>
             <p class="timed-message">{{timedMessage}}</p>
 
