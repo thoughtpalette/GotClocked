@@ -4,4 +4,3 @@ node_modules
 .vagrant
 .DS_Store
 mandrill_stuffs.txt
-/templates/email.html
