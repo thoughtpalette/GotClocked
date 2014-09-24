@@ -1,39 +1,6 @@
-<div class="row-container">
-    <div class="row">
+<div class="overlay"></div>
 
-        <p>Who's getting clocked?</p>
-
-        <img data-ng-hide="meetingStarted" class="people-icon" src="/images/ic_people.png" alt="">
-
-        <span class="entries" data-ng-hide="meetingStarted">{{entries}}</span>
-
-        <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="money-top-icon" src="/images/ic_money_on.png" alt="">
-        <img data-ng-show="stopped" class="money-top-icon" src="/images/ic_money.png" alt="">
-
-        <div data-ng-show="meetingStarted" id="count-container" data-ng-class="{'stopped' : stopped }">
-            0
-        </div>
-    </div>
-
-    <div class="row">
-
-        <img data-ng-show="meetingStarted" data-ng-class="{'stopped' : stopped }"  class="time-icon" src="/images/ic_clock.png" alt="">
-        <img data-ng-show="stopped" class="time-icon" src="/images/ic_clock_pause.png" alt="">
-
-        <div data-ng-show="meetingStarted" id="elapsed-time" data-ng-class="{'stopped' : stopped }">00:00:00</div>
-
-        <form data-ng-hide="meetingStarted" name="rate-form" data-ng-submit="addRate(rate)">
-            <img class="money-icon" src="/images/ic_money.png" alt="">
-            <input type="text" name="rate" id="rate" data-ng-model="rate" placeholder="Enter Participant Rate">
-            <button class="add-btn" type="submit">Add</button>
-        </form>
-
-        <button class="start-timer" data-ng-hide="meetingStarted" data-ng-click="startMeeting()">Start</button>
-        <button class="stop-timer" data-ng-class="{'stopped' : stopped }" data-ng-show="meetingStarted" data-ng-click="stopMeeting();">Stop</button>
-
-        <div class="paused-controls">
-            <button class="start-timer-resume" data-ng-show="stopped" data-ng-click="resumeMeeting()">Resume</button>
-            <button class="reset-timer" data-ng-show="stopped" data-ng-click="resetMeeting()">Reset</button>
-        </div>
-    </div>
+<div class="go-to-app">
+    <p>Too many meetings, too many people.</p>
+    <a href="/app" target="_self">Get Clock'n</a>
 </div>
