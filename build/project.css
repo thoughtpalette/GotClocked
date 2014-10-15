@@ -2,6 +2,8 @@
 /* Application Styles */
 * {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
   position: relative;
