@@ -68,7 +68,7 @@ angular.module( "vokal.controllers", [] )
         $(function() {
             var BV = new $.BigVideo();
             BV.init();
-            BV.show( "got-clocked-scaled.mp4",{ambient:true});
+            BV.show( "build/got-clocked-scaled.mp4",{ambient:true});
         });
 
         $timeout( function () {
