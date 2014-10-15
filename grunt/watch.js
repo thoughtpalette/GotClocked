@@ -24,5 +24,12 @@ module.exports = {
 			"source/styles/project/*"
 		],
 		tasks: [ "less:dev" ]
+	},
+	templates:
+	{
+		files: [
+			"source/templates/**/*.html"
+		],
+		tasks: [ "ngtemplates" ]
 	}
 };

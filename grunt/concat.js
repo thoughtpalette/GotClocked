@@ -14,20 +14,6 @@ module.exports = {
 		],
 		dest: "build/jquery.js"
 	},
-	timer:
-	{
-		src: [
-			"source/scripts/library/timer.js"
-		],
-		dest: "build/timer.js"
-	},
-	countup:
-	{
-		src: [
-			"source/scripts/library/countUp.js"
-		],
-		dest: "build/countup.js"
-	},
 	angular:
 	{
 		src: [
@@ -39,27 +25,23 @@ module.exports = {
 		],
 		dest: "build/angular.js"
 	},
-	bigVideo:
-	{
-		src: [
-			"source/components/video.js/dist/video-js/video.js",
-			"source/components/BigVideo.js/lib/bigvideo.js"
-		],
-		dest: "build/bigvideo.js"
-	},
-	moment:
-	{
-		src: [
-			"source/components/moment/min/moment.min.js"
-		],
-		dest: "build/moment.js"
-	},
 	modernizr:
 	{
 		src: [
 			"source/scripts/library/modernizr.custom.js"
 		],
 		dest: "build/modernizr.custom.js"
+	},
+	components:
+	{
+		src: [
+			"source/scripts/library/countUp.js",
+			"source/scripts/library/timer.js",
+			"source/components/video.js/dist/video-js/video.js",
+			"source/components/BigVideo.js/lib/bigvideo.js",
+			"source/components/moment/min/moment.min.js",
+		],
+		dest: "build/components.js"
 	},
 	styles:
 	{
