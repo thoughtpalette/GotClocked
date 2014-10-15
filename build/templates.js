@@ -1,7 +1,7 @@
 angular.module('vokal').run(['$templateCache', function($templateCache) {
   'use strict';
 
-  $templateCache.put('/build/templates/app.html',
+  $templateCache.put('templates/app.html',
     "<header>\n" +
     "    <div class=\"row-container\">\n" +
     "        <div class=\"row\">\n" +
@@ -109,7 +109,7 @@ angular.module('vokal').run(['$templateCache', function($templateCache) {
   );
 
 
-  $templateCache.put('/build/templates/email.html',
+  $templateCache.put('templates/email.html',
     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" style=\"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0\">\n" +
     "<head>\n" +
@@ -268,7 +268,7 @@ angular.module('vokal').run(['$templateCache', function($templateCache) {
   );
 
 
-  $templateCache.put('/build/templates/home.html',
+  $templateCache.put('templates/home.html',
     "<div class=\"overlay\"></div>\n" +
     "\n" +
     "<div class=\"go-to-app\">\n" +

@@ -30,6 +30,6 @@ module.exports = {
 		files: [
 			"source/templates/**/*.html"
 		],
-		tasks: [ "ngtemplates" ]
+		tasks: [ "ngtemplates", "replace" ]
 	}
 };

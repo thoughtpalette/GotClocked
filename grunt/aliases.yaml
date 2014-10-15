@@ -1,12 +1,16 @@
 default:
   - jshint
   - concat
+  - copy
   - ngtemplates
+  - replace
   - less:dev
 
 deploy:
   - jshint
   - uglify
   - concat
+  - copy
   - ngtemplates
+  - replace
   - less:deploy

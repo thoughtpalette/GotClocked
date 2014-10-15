@@ -3,7 +3,6 @@
 module.exports = {
     options: {
         module: "vokal",
-        prefix: "/<%= pkg.buildPath %>",
         htmlmin: {
             collapseBooleanAttributes: true,
             collapseWhitespace: false,
